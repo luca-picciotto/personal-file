@@ -1,0 +1,40 @@
+{
+  "name": "bim-exploder-best-practice",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "lint": "eslint .",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@gsap/react": "^2.1.2",
+    "@tailwindcss/vite": "^4.0.6",
+    "@thatopen/components": "^2.4.4",
+    "@thatopen/ui": "^2.4.1",
+    "gsap": "^3.12.7",
+    "lenis": "^1.1.20",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "stats.js": "^0.17.0",
+    "tailwindcss": "^4.0.6",
+    "three": "^0.160.1",
+    "web-ifc": "^0.0.66"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.19.0",
+    "@types/react": "^19.0.8",
+    "@types/react-dom": "^19.0.3",
+    "@types/three": "^0.173.0",
+    "@vitejs/plugin-react": "^4.3.4",
+    "eslint": "^9.19.0",
+    "eslint-plugin-react-hooks": "^5.0.0",
+    "eslint-plugin-react-refresh": "^0.4.18",
+    "globals": "^15.14.0",
+    "typescript": "~5.7.2",
+    "typescript-eslint": "^8.22.0",
+    "vite": "^6.1.0"
+  }
+}
