@@ -1,0 +1,59 @@
+.hover {
+    height: fit-content;
+    width: 100vw;
+}
+
+section:nth-child(even) {
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(255, 255, 255, 0.281);
+}
+section:nth-child(odd) {
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, 0.219);
+}
+
+section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+}
+
+#hero {
+    background-color: transparent;
+    position: relative;
+}
+#rotationSec {
+    height: 200vh;
+}
+
+.b, .m {
+    font-size: calc(26rem - 20px);
+    font-weight: 700;
+    color: #56f9f9;
+    text-align: center;
+    font-family: sans-serif;
+    font-weight: 900;
+    
+}
+.b {
+    transform: translate(-35%, -4%);
+}
+.m {
+    transform: translate(30%, -4%);
+}
+
+
+.left {
+    justify-content: flex-start;
+}
+.right {
+    justify-content: flex-end;
+
+}
+.center {
+    align-self: center;
+
+}

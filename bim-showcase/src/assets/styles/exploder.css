@@ -1,0 +1,19 @@
+#container {
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1000;
+}
+
+/* #container {
+  height: 50vh;
+  width: 50vw;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1000;
+  margin: 0 auto;
+} */

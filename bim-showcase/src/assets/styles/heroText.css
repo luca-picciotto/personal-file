@@ -1,0 +1,16 @@
+.wrapper{
+    position: absolute;
+    top: 70%;
+    text-transform: uppercase;
+    width: 40vw;
+    font-family: sans-serif;
+    right: 28%;
+    text-align: right;
+    font-size: 1.5em;
+    color: white;
+  }
+  .sub-title span {
+    color: #56f9f9;
+    
+  }
+  
