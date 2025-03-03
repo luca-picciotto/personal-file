@@ -1,50 +1,170 @@
-# React + TypeScript + Vite
+import { forwardRef, useRef } from 'react';
+import '../assets/styles/textShower.css';
+import { useGSAP } from '@gsap/react';
+import gsap from 'gsap';
+import TextPlugin from 'gsap/TextPlugin';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+gsap.registerPlugin(TextPlugin, ScrollTrigger);
 
-Currently, two official plugins are available:
+const TextShower = forwardRef<HTMLDivElement>(( _ , ref) => {
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+    const hRef1 = useRef<HTMLSpanElement>(null);
+    const cRef1 = useRef<HTMLSpanElement> (null);
+    const hRef2 = useRef<HTMLSpanElement>(null);
+    const cRef2 = useRef<HTMLSpanElement> (null);
+    const hRef3 = useRef<HTMLSpanElement>(null);
+    const cRef3 = useRef<HTMLSpanElement> (null);
+    const hRef4 = useRef<HTMLSpanElement>(null);
+    const cRef4 = useRef<HTMLSpanElement> (null);
+    const tsp1 = useRef<HTMLParagraphElement>(null);
+    const tsp2 = useRef<HTMLParagraphElement>(null);
 
-## Expanding the ESLint configuration
+    const tl = useRef<gsap.core.Timeline>(null);
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+    useGSAP(() => {
+        gsap.to(hRef1.current, {
+            text: "Nessun limite di peso",
+            duration: 2,
+            scrollTrigger: {
+                trigger:"#prova",
+                start: "top 100px",
+            }
+        });
+        gsap.fromTo(cRef1.current, {
+            opacity: 0
+        }, {
+            opacity: 1,
+            duration: 3,
+            scrollTrigger: {
+                trigger:"#prova",
+                start: "top 100px",
+            }
+        });
 
-- Configure the top-level `parserOptions` property like this:
+        gsap.to(hRef2.current, {
+            text: "I tuoi documenti a disposizione",
+            duration: 2,
+            scrollTrigger: {
+                trigger: "#prova",
+                start: "10% 100px",
+            }
+        });
+        gsap.fromTo(cRef2.current, {
+            opacity: 0
+        }, {
+            opacity: 1,
+            duration: 3,
+            scrollTrigger: {
+                trigger: "#prova",
+                start: "10% 100px",
+            }
+        });
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+    }, [ref])
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+    useGSAP(() => {
+        tl.current = gsap.timeline()
+        gsap.fromTo(tsp1.current, {
+            opacity: 0,
+            scale: 0.5
+        }, {
+            opacity: 1,
+            scale: 1,
+            scrollTrigger: {
+                
+                trigger: tsp1.current,
+                scrub: 5,
+                start: "top 300px",
+                end: "150% 600px"
+            }
+        });
+        tl.current.to(tsp1.current, {x: -200});
+        tl.current.fromTo(tsp1.current, {
+            x:-200,
+            // scale: 0.5,
+            // opacity: 0,
+        }, {
+            x:-500,
+            ease: "none",
+            // scale: 1,
+            // opacity:1,
+            scrollTrigger: {
+                
+                trigger: tsp1.current,
+                scrub:5,
+                start: "top 200px",
+                end: "150% 500px"
+            }
+        });
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+        gsap.fromTo(tsp2.current, {
+            opacity: 0,
+            scale: 0.5
+        }, {
+            opacity: 1,
+            scale: 1,
+            scrollTrigger: {
+                
+                trigger: tsp2.current,
+                scrub: 5,
+                start: "20% 300px",
+                end: "150% 600px"
+            }
+        })
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+        gsap.fromTo(tsp2.current, {
+            x: 0,
+            y: 200
+        }, {
+            x: 200,
+            y: -10,
+            ease: "none",
+
+            scrollTrigger: {
+
+                trigger: tsp2.current,
+                scrub:5,
+                start: "20% 200px",
+                end: "150% 500px"
+            }
+        });
+
+        tl.current.fromTo(tsp1.current, {x: -500}, {
+            x: -10000,
+            scrollTrigger: {
+                markers: true,
+                trigger: "#textShowerMiddle",
+                start: "20% center",
+                end: "center center",
+                scrub: 1
+            }
+        })
+    })
+
+    return(
+        <div className="text-shower" ref={ref}>
+            <p id='tsp-1' ref={tsp1}>
+                <span ref={hRef1} ></span>
+                <span ref={cRef1} >IFC fino a 1GB in alta fedeltà, con prestazioni eccellenti anche da mobile e tablet</span>
+            </p>
+            <p id='tsp-2' ref={tsp2}>
+                <span ref={hRef2} ></span>
+                <span ref={cRef2} >Allega documenti ai singoli elementi all'interno del tuo file IFC</span>
+            </p>
+            {/* <p>
+                <span ref={hRef3} >Workspace condiviso</span>
+                <span ref={cRef3} >Condividi i tuoi modelli versionati con i tuoi clienti e collaboratori. Tieni al sicuro i tuoi file garantendo accesso solo a chi vuoi.</span>
+            </p>
+            <p>
+                <span ref={hRef4} >Facilita il lavoro del tuo team</span>
+                <span ref={cRef4} >Composizione di più modelli, calcolo delle distanze e clashing degli oggetti tutto integrato</span>
+            </p> */}
+
+
+        </div>
+    );
+} 
+
+)
+export default TextShower;

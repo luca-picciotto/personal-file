@@ -10,6 +10,7 @@ import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import TextPlugin from 'gsap/TextPlugin';
+import TextShower from './TextShower';
 
 gsap.registerPlugin(ScrollTrigger, TextPlugin)
 
@@ -18,12 +19,12 @@ export const Content = () => {
     const tlBim = useRef<gsap.core.Timeline>(null);
     const popLeft = useRef<HTMLDivElement>(null);
     const popRight = useRef<HTMLDivElement>(null);
+    const textShower = useRef<HTMLDivElement>(null);
 
     useGSAP(() => {
         tlBim.current = gsap.timeline( {
             scrollTrigger: {
                 trigger: "#start",
-                // markers: true,
                 start: "top 80%",
                 end: "20% 80%",
                 scrub: 0.2
@@ -45,6 +46,7 @@ export const Content = () => {
             opacity: 0,
             duration: 3
         }, 0)
+        
 
         
         
@@ -134,7 +136,19 @@ export const Content = () => {
             }
         })
         
-    }, [ popLeft, popRight])
+    }, [ popLeft, popRight]);
+
+    useGSAP(() => {
+        gsap.to(textShower.current, {
+            scrollTrigger: {
+                trigger: textShower.current,
+                endTrigger: "#endTextShower",
+                start: "top 100px",
+                end: "top top",
+                pin: textShower.current
+            }
+        })
+    })
 
     return (
         <div className="hover">
@@ -144,6 +158,7 @@ export const Content = () => {
                 <p className='m'>M</p>
                 <HeroText />
             </section>
+
             <section id='start' className='left'>
                 <Popup ref={popLeft} />
             </section>
@@ -152,12 +167,16 @@ export const Content = () => {
             </section>
             <section id="endPopup" >
             </section>
-            <section id='prova'  ></section>
+
+            <section id='prova'  >
+                <TextShower  ref={textShower}/> 
+            </section>
+            <section id='textShowerMiddle'></section>
             <section id="rotationSec"></section>
+            <section id='endTextShower'></section>
             <section></section>
             <section></section>
-            <section></section>
-            <section>
+            <section id='footer'>
                 <p className='b'>B</p>
                 <p className='m'>M</p>
             </section>
