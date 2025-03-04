@@ -7,12 +7,12 @@ section {
     width: 100vw;
 }
 
-section:nth-child(even) {  
+/* section:nth-child(even) {  
     background-color: rgba(255, 255, 255, 0.281);
 }
 section:nth-child(odd) {
     background-color: rgba(0, 0, 0, 0.219);
-}
+} */
 #footer {
     height: 100vh;
 }

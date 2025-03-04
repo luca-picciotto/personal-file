@@ -64,7 +64,7 @@ export  const backgroundColors = [
     new THREE.Color().setHex(0x404040), // 57 - Very Light Gray (Space)
     new THREE.Color().setHex(0x4d4d4d), // 58 - Lighter Gray (Space) 
 
-    new THREE.Color().setHex(0x56f9f9)
+    new THREE.Color().setHex(0x56f9f9),
 ];
 
 export default backgroundColors;

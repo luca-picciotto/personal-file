@@ -1,6 +1,6 @@
 import { forwardRef, useRef } from 'react';
 import '../assets/styles/textShower.css';
-import { useGSAP } from '@gsap/react';
+// import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import TextPlugin from 'gsap/TextPlugin';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -15,13 +15,13 @@ const TextShower = forwardRef<HTMLDivElement>(( _ , ref) => {
     const cRef2 = useRef<HTMLSpanElement> (null);
     const hRef3 = useRef<HTMLSpanElement>(null);
     const cRef3 = useRef<HTMLSpanElement> (null);
-    const hRef4 = useRef<HTMLSpanElement>(null);
-    const cRef4 = useRef<HTMLSpanElement> (null);
+    // const hRef4 = useRef<HTMLSpanElement>(null);
+    // const cRef4 = useRef<HTMLSpanElement> (null);
     const tsp1 = useRef<HTMLParagraphElement>(null);
     const tsp2 = useRef<HTMLParagraphElement>(null);
     const tsp3 = useRef<HTMLParagraphElement>(null);
 
-    const tl = useRef<gsap.core.Timeline>(null);
+    // const tl = useRef<gsap.core.Timeline>(null);
 
     // useGSAP(() => {
 
