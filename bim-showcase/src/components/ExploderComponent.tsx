@@ -104,6 +104,7 @@ export const ExploderComponent = memo(() => {
       const spherical = new THREE.Spherical(14, 0.9553166181245093, 0); // Iniziale: raggio, phi, theta
       const yStart = 10;
       const yEnd = 40;
+      console.log("useEffect ", modelRef.current.position);
 
       tl.current = gsap.timeline({
         scrollTrigger: {
@@ -155,7 +156,7 @@ export const ExploderComponent = memo(() => {
           x: 10,
           duration: 5, 
           onUpdate: function () {
-           
+            modelRef.current.updateMatrixWorld(true);
             console.log(modelRef.current.position);
             
           }
@@ -302,7 +303,7 @@ export const ExploderComponent = memo(() => {
           },
         });
     }
-  }, [loaded, world]);
+  }, [loaded, world, modelRef.current]);
 
   return <div id="container" ref={container}></div>;
 });
