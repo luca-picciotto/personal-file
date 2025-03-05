@@ -57,3 +57,11 @@
     right: 65vh;
     bottom: 35vh;
 }
+#tsp-4 {
+    transform: perspective(400px);
+    opacity: 1;
+    left: 25vw;
+    bottom: 37vh;
+    scale: 0.7;
+
+}

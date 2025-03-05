@@ -5,8 +5,8 @@
     padding: 0 20px;
     
     filter: blur(0);
-    outline: 1px solid #56f9f9;
-    box-shadow: 0 15px 10px #56f9f93a;
+    /* outline: 1px solid #56f9f9; */
+    /* box-shadow: 0 15px 10px #56f9f93a; */
     
     position: fixed;
     top: 0;
